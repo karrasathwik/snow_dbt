@@ -1,0 +1,7 @@
+version: 2
+sources:
+  - name: zoma_s
+    database: 'DBT_DB'
+    schema: 'DBT_SCHEMA'
+    tables:
+      - name: 'DBT_TABLE'
