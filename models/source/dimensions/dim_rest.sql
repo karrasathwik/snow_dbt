@@ -5,10 +5,10 @@
 }}
 
 with rest as (
-    select 
+    select  distinct
         REST_NAME,
         RESTAURANT_TYPE,
-    from {{ ref('stg_clean') }}
+    from {{ ref('stg_clean') }} 
 ),
 
 surrogate as (
@@ -16,7 +16,7 @@ surrogate as (
         *,
         {{ dbt_utils.generate_surrogate_key(
             ['REST_NAME', 'RESTAURANT_TYPE']
-        ) }} as rest_sk
+        ) }} as REST_SK
     from rest
 )
 
